@@ -1,0 +1,3 @@
+[submodule "libDAI"]
+	path = libDAI
+	url = https://github.com/dbtsai/libDAI.git
