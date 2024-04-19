@@ -1,3 +1,6 @@
 [submodule "libDAI"]
 	path = libDAI
 	url = https://github.com/dbtsai/libDAI.git
+[submodule "CImg"]
+	path = CImg
+	url = https://github.com/dtschump/CImg.git

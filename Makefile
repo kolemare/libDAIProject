@@ -1,12 +1,13 @@
 CXX := g++
-CXXFLAGS := -std=c++11 -IlibDAI/include
+CXXFLAGS := -std=c++11 -IlibDAI/include -ICImg -Isrc
 LDFLAGS := -LlibDAI/lib
-LDLIBS := -ldai -lgmp
+LDLIBS := -ldai -lX11 -lgmpxx -lgmp  # Reorder to ensure GMP is linked after libDAI
 
 # Specify the path of libdai.a here
 LIBDAI_PATH := libDAI/lib/libdai.a
 
-SRCS := $(wildcard *.cpp)
+# Automatically find source files from src directory and subdirectories
+SRCS := $(shell find src -name '*.cpp')
 OBJS := $(SRCS:.cpp=.o)
 TARGET := libDAIApp
 
