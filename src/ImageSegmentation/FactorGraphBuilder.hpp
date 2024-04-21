@@ -7,11 +7,12 @@
 using namespace dai;
 using namespace cimg_library;
 
-class FactorGraphBuilder {
-    std::vector<Var> vars;  // To store the variables used in the factor graph
+class FactorGraphBuilder
+{
+    std::vector<Var> vars; // To store the variables used in the factor graph
 public:
-    FactorGraph buildGraph(const CImg<unsigned char>& img, double J, double th_min, double th_max, double scale, double pbg, CImg<unsigned char>& evidence);
-    const std::vector<Var>& getVars() const { return vars; }  // Getter for variables
+    FactorGraph buildGraph(const CImg<unsigned char> &img, double J, double th_min, double th_max, double scale, double pbg, CImg<unsigned char> &evidence);
+    const std::vector<Var> &getVars() const { return vars; } // Getter for variables
 };
 
 #endif
