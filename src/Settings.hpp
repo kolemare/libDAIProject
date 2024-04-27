@@ -7,8 +7,8 @@ using namespace cimg_library;
 enum class Operation
 {
     ImageSegmentation,
-    OptionB,
-    OptionC
+    Sprinkler,
+    BP
 };
 
 class Settings

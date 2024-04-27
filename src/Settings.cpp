@@ -38,8 +38,8 @@ void Settings::initialize(int argc, char **argv)
     const char *operation_str = cimg_option("-op", "ImageSegmentation", "Operation type");
     if (strcmp(operation_str, "ImageSegmentation") == 0)
         operation = Operation::ImageSegmentation;
-    else if (strcmp(operation_str, "OptionB") == 0)
-        operation = Operation::OptionB;
-    else if (strcmp(operation_str, "OptionC") == 0)
-        operation = Operation::OptionC;
+    else if (strcmp(operation_str, "Sprinkler") == 0)
+        operation = Operation::Sprinkler;
+    else if (strcmp(operation_str, "BP") == 0)
+        operation = Operation::BP;
 }

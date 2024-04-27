@@ -14,6 +14,8 @@ clean_libDAI() {
     echo "Cleaning libDAI and reverting to original state..."
     cd libDAI || exit
     git clean -xdf
+    git reset --hard
+    git submodule update --init --recursive
     cd ..
 }
 
@@ -75,7 +77,7 @@ make
 
 # Check the exit status of the make command
 if [ $? -ne 0 ]; then
-    echo -e "\e[91mBuild failed. Make sure you run the build.sh with --full if building for the first time or libDAI isn't built yet.\e[0m"
+    echo -e "\e[91mBuild failed. Make sure you run the build.sh with --full if building for the first time or if libDAI isn't built yet.\e[0m"
 else
     echo -e "\e[94mBuild completed successfully.\e[0m"
 fi

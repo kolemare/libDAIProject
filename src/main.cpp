@@ -1,4 +1,6 @@
+#include "BipartiteGraph/BipartiteGraphHandler.hpp"
 #include "ImageSegmentation/ImageSegmentation.hpp"
+#include "Sprinkler/Sprinkler.hpp"
 
 int main(int argc, char **argv)
 {
@@ -11,11 +13,13 @@ int main(int argc, char **argv)
         ImageSegmentation imageSegmentation;
         imageSegmentation();
         break;
-    case Operation::OptionB:
-        // Handle Option B
+    case Operation::Sprinkler:
+        Sprinkler sprinkler;
+        sprinkler();
         break;
-    case Operation::OptionC:
-        // Handle Option C
+    case Operation::BP:
+        BipartiteGraphHandler handler;
+        handler();
         break;
     }
 
