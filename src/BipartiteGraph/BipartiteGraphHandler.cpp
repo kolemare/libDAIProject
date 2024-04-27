@@ -43,13 +43,13 @@ void BipartiteGraphHandler::drawGraph()
     for (size_t n1 = 0; n1 < graph.nrNodes1(); ++n1)
     {
         string node1_name = "Type1_" + to_string(n1);
-        node = agnode(g, const_cast<char *>(node1_name.c_str()), TRUE);
+        node = agnode(g, const_cast<char *>(node1_name.c_str()), true);
 
         bforeach(const Neighbor &n2, graph.nb1(n1))
         {
             string node2_name = "Type2_" + to_string(n2);
-            Agnode_t *node2 = agnode(g, const_cast<char *>(node2_name.c_str()), TRUE);
-            edge = agedge(g, node, node2, 0, TRUE);
+            Agnode_t *node2 = agnode(g, const_cast<char *>(node2_name.c_str()), true);
+            edge = agedge(g, node, node2, 0, true);
         }
     }
 

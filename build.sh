@@ -19,6 +19,16 @@ clean_libDAI() {
     cd ..
 }
 
+# Function to clean graphviz git and revert to original state
+clean_graphviz() {
+    echo "Cleaning graphviz and reverting to original state..."
+    cd graphviz || exit
+    git clean -xdf
+    git reset --hard
+    git submodule update --init --recursive
+    cd ..
+}
+
 # Function to modify Makefile
 modify_makefile() {
     cd libDAI || exit
@@ -27,6 +37,20 @@ modify_makefile() {
     sed -i 's/BOOSTLIBS_PO=-lboost_program_options-mt/BOOSTLIBS_PO=-lboost_program_options/g' Makefile.conf
     sed -i 's/BOOSTLIBS_UTF=-lboost_unit_test_framework-mt/BOOSTLIBS_UTF=-lboost_unit_test_framework/g' Makefile.conf
     cd ..
+}
+
+build_graphviz() {
+    echo "Building Graphviz..."
+    cd graphviz || exit
+    if [ ! -d "build" ]; then
+        mkdir -p build
+        cd build || exit
+        cmake ..
+    else
+        cd build || exit
+    fi
+    make
+    cd ../..
 }
 
 # Check number of arguments
@@ -43,35 +67,39 @@ fi
 if [[ $# -eq 0 ]]; then
     # No arguments provided
     echo "Building application only."
-
+    # If no arguments are provided, shouldn't we still build Graphviz?
+    build_graphviz
 elif [[ ($1 == "--clean" && $2 == "--full") || ($1 == "--full" && $2 == "--clean") ]]; then
     # Clean and full arguments provided in any order
     clean_libDAI
+    clean_graphviz
     modify_makefile
+    build_graphviz  # Moved here to ensure clean start for full build
     echo "Building libDAI..."
     cd libDAI || exit
     make
     cd ..
-
 elif [[ $1 == "--clean" ]]; then
     # Only clean argument provided
     clean_libDAI
+    clean_graphviz
     modify_makefile
+    build_graphviz
     echo "Building libDAI..."
     cd libDAI || exit
     make
     cd ..
-
 elif [[ $1 == "--full" ]]; then
     # Only full argument provided
     modify_makefile
+    build_graphviz
     echo "Building libDAI..."
     cd libDAI || exit
     make
     cd ..
 fi
 
-# Clean root folder and build
+# Build the main application
 make clean
 make
 
