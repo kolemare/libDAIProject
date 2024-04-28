@@ -4,6 +4,14 @@
 #include <CImg.h>
 using namespace cimg_library;
 
+/**
+ * @class ImageProcessor
+ * @brief Provides functionalities for reading, displaying, and processing images.
+ *
+ * This class utilizes the CImg library to handle various image processing operations,
+ * such as reading images from files, displaying images, calculating histograms,
+ * constructing difference images, normalizing images, and saving images after displaying.
+ */
 class ImageProcessor
 {
 public:

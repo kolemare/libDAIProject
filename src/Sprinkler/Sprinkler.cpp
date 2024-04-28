@@ -6,6 +6,18 @@
 using namespace std;
 using namespace dai;
 
+/**
+ * @brief Simulates the Sprinkler Bayesian Network and calculates various probabilities.
+ *
+ * This method initializes a Bayesian network for the Sprinkler model with variables representing
+ * Cloudy, Sprinkler, Rain, and Wet Grass. It sets up the conditional probabilities for these variables
+ * and constructs a factor graph. It writes the factor graph to a file and outputs basic information
+ * about the graph. The method also computes and prints the joint probability of all variables and
+ * specific conditional probabilities such as P(Sprinkler=1 | WetGrass=1) and P(Rain=1 | WetGrass=1).
+ *
+ * The network structure and probabilities are based on typical examples of Bayesian networks used in
+ * probabilistic graphical models.
+ */
 void Sprinkler::runSprinkler()
 {
     Var C(0, 2); // Cloudy

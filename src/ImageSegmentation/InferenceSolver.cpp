@@ -2,6 +2,25 @@
 #include <iostream>
 #include <vector>
 
+/**
+ * @brief Executes the inference algorithm on a given factor graph to estimate the variable states.
+ *
+ * This method sets up and runs an inference algorithm specified by a string containing options for
+ * the algorithm. It iteratively updates the beliefs about the variables' states, visualizes these beliefs,
+ * and monitors the convergence of the algorithm until a specified tolerance level is reached or the maximum
+ * number of iterations is exceeded. The method utilizes visual feedback for each iteration by displaying
+ * and saving the current state of beliefs.
+ *
+ * @param fg Reference to a FactorGraph object on which inference is to be performed.
+ * @param algOpts String specifying the options for the inference algorithm.
+ * @param maxIter Maximum number of iterations the inference algorithm should run.
+ * @param tol Tolerance level for convergence of the inference algorithm.
+ * @param m Reference to a vector<double> that will store the final magnetizations (beliefs) of the variables.
+ * @param dimx Width of the image representing the beliefs for visualization.
+ * @param dimy Height of the image representing the beliefs for visualization.
+ * @param disp Reference to a CImgDisplay object used for displaying the beliefs.
+ * @return double The maximum difference between iterations of the algorithm indicating convergence level.
+ */
 double InferenceSolver::runInference(FactorGraph &fg, std::string algOpts, size_t maxIter, double tol, std::vector<double> &m, size_t dimx, size_t dimy, CImgDisplay &disp)
 {
     // Construct inference algorithm

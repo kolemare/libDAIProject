@@ -5,6 +5,9 @@
 using namespace dai;
 using namespace std;
 
+/**
+ * @brief Default constructor initializes the bipartite graph with predefined nodes and edges.
+ */
 BipartiteGraphHandler::BipartiteGraphHandler()
 {
     vector<Edge> edges = {
@@ -14,11 +17,19 @@ BipartiteGraphHandler::BipartiteGraphHandler()
     graph = BipartiteGraph(5, 3, edges.begin(), edges.end());
 }
 
+/**
+ * @brief Invokes the main functionality of the bipartite graph handler.
+ */
 void BipartiteGraphHandler::operator()()
 {
     this->doSomething();
 }
 
+/**
+ * @brief Adds an edge between two nodes if it doesn't already exist.
+ * @param node1 Index of the first node.
+ * @param node2 Index of the second node.
+ */
 void BipartiteGraphHandler::addEdge(size_t node1, size_t node2)
 {
     if (node1 < graph.nrNodes1() && node2 < graph.nrNodes2() && !graph.hasEdge(node1, node2))
@@ -27,6 +38,11 @@ void BipartiteGraphHandler::addEdge(size_t node1, size_t node2)
     }
 }
 
+/**
+ * @brief Removes an edge between two nodes if it exists.
+ * @param node1 Index of the first node.
+ * @param node2 Index of the second node.
+ */
 void BipartiteGraphHandler::removeEdge(size_t node1, size_t node2)
 {
     if (graph.hasEdge(node1, node2))
@@ -35,6 +51,10 @@ void BipartiteGraphHandler::removeEdge(size_t node1, size_t node2)
     }
 }
 
+/**
+ * @brief Adds a new node of a specified type to the graph.
+ * @param nodeType Type of the node (1 for type 1, 2 for type 2).
+ */
 void BipartiteGraphHandler::addNode(size_t nodeType)
 {
     if (nodeType == 1)
@@ -47,6 +67,11 @@ void BipartiteGraphHandler::addNode(size_t nodeType)
     }
 }
 
+/**
+ * @brief Removes a node of a specified type from the graph if it exists.
+ * @param node Index of the node to be removed.
+ * @param nodeType Type of the node (1 for type 1, 2 for type 2).
+ */
 void BipartiteGraphHandler::removeNode(size_t node, size_t nodeType)
 {
     if (nodeType == 1 && node < graph.nrNodes1())
@@ -59,6 +84,12 @@ void BipartiteGraphHandler::removeNode(size_t node, size_t nodeType)
     }
 }
 
+/**
+ * @brief Checks if there is a path connecting two nodes.
+ * @param node1 Index of the first node.
+ * @param node2 Index of the second node.
+ * @return bool True if there is a path, false otherwise.
+ */
 bool BipartiteGraphHandler::isConnected(size_t node1, size_t node2)
 {
     vector<bool> visited(graph.nrNodes1() + graph.nrNodes2(), false);
@@ -88,6 +119,9 @@ bool BipartiteGraphHandler::isConnected(size_t node1, size_t node2)
     return false;
 }
 
+/**
+ * @brief Displays the connectivity information of the graph.
+ */
 void BipartiteGraphHandler::displayConnectivity()
 {
     cout << "Connectivity between nodes:" << endl;
@@ -111,6 +145,9 @@ void BipartiteGraphHandler::displayConnectivity()
     }
 }
 
+/**
+ * @brief Displays basic information about the graph such as number of nodes and edges.
+ */
 void BipartiteGraphHandler::displayGraphInfo()
 {
     cout << "Graph has " << graph.nrNodes1() << " nodes of type 1 and "
@@ -118,6 +155,12 @@ void BipartiteGraphHandler::displayGraphInfo()
          << "Total edges: " << graph.nrEdges() << endl;
 }
 
+/**
+ * @brief Executes a series of operations to demonstrate graph manipulations.
+ *
+ * This method demonstrates adding and removing nodes and edges, checks connectivity,
+ * and visualizes the graph after various operations.
+ */
 void BipartiteGraphHandler::doSomething()
 {
     // Step 1: Display initial graph info
@@ -176,6 +219,9 @@ void BipartiteGraphHandler::doSomething()
     displayGraphInfo();
 }
 
+/**
+ * @brief Visualizes the bipartite graph using Graphviz and saves the visualization to a file.
+ */
 void BipartiteGraphHandler::displayGraphWithGraphviz()
 {
     GVC_t *gvc;

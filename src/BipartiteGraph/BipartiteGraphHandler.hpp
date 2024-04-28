@@ -8,6 +8,14 @@
 #include <gvc.h>
 #include <cgraph.h>
 
+/**
+ * @class BipartiteGraphHandler
+ * @brief Handles operations and visualizations for a bipartite graph.
+ *
+ * This class manages a bipartite graph and provides functionalities for adding and removing nodes and edges,
+ * checking connectivity, and visualizing the graph using Graphviz. It supports various operations to manipulate
+ * the graph structure and provides detailed visual feedback on the graph's current state.
+ */
 class BipartiteGraphHandler
 {
 public:

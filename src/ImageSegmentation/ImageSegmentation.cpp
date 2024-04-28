@@ -1,5 +1,23 @@
 #include "ImageSegmentation.hpp"
 
+/**
+ * @brief Executes the complete image segmentation process on two input images.
+ *
+ * This method involves reading two images, comparing them to identify differences, and then using these differences
+ * to create a factor graph which is subsequently used for inference to segment the images. The method involves several
+ * steps, including:
+ * - Reading and displaying the input images.
+ * - Checking for size consistency between the images.
+ * - Computing and displaying the difference image.
+ * - Normalizing and displaying the difference image.
+ * - Converting the normalized difference image into a factor graph and visualizing the local evidence.
+ * - Saving the local evidence and factor graph.
+ * - Running inference on the factor graph to solve the segmentation problem.
+ * - Visualizing and saving the final segmentation result.
+ *
+ * Detailed messages are printed to the console at each step to inform the user of the progress. The process
+ * concludes with a loop that keeps the final display open until the user closes it.
+ */
 void ImageSegmentation::runImageSegmentation()
 {
     ImageProcessor ip;

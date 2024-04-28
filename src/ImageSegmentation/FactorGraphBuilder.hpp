@@ -7,6 +7,15 @@
 using namespace dai;
 using namespace cimg_library;
 
+/**
+ * @class FactorGraphBuilder
+ * @brief A class to build factor graphs based on image data using the Ising model.
+ *
+ * This class provides functionality to construct a factor graph from a given image, where
+ * each pixel's interaction is modeled using the Ising model. It allows for the adjustment
+ * of interaction strength, threshold levels, and scaling factors to manipulate the model's
+ * sensitivity to changes in pixel intensity.
+ */
 class FactorGraphBuilder
 {
     std::vector<Var> vars; // To store the variables used in the factor graph

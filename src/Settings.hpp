@@ -11,6 +11,15 @@ enum class Operation
     BP
 };
 
+/**
+ * @class Settings
+ * @brief Manages configuration settings for various modules within the application.
+ *
+ * This class contains static member variables that hold configuration settings such as file paths,
+ * algorithm parameters, and operation modes. These settings are initialized from command-line arguments
+ * using the CImg library functions. The class supports different operations such as Image Segmentation,
+ * Sprinkler Bayesian network, and Bipartite Graph handling, each with its own set of configurations.
+ */
 class Settings
 {
 public:

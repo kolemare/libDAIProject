@@ -19,6 +19,17 @@ double Settings::tol = 0.0;
 const char *Settings::file_fg = nullptr;
 Operation Settings::operation = Operation::ImageSegmentation;
 
+/**
+ * @brief Initializes settings from command-line arguments.
+ *
+ * This method parses command-line arguments to set up various configuration parameters for the application.
+ * It uses the CImg library's command-line parsing utility to extract values for each setting. The method
+ * supports switching between different operations and adjusts settings accordingly based on the provided
+ * arguments.
+ *
+ * @param argc Number of command-line arguments.
+ * @param argv Array of command-line argument strings.
+ */
 void Settings::initialize(int argc, char **argv)
 {
     file_i1 = cimg_option("-i1", "example_img_in1.jpg", "Input image 1");

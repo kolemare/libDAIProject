@@ -13,3 +13,7 @@ libDAIApp
 # Ignore results contents except .gitkeep
 /results/Sprinkler/*
 !/results/Sprinkler/.gitkeep
+
+latex/*
+html/*
+docs/*
