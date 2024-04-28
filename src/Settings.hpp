@@ -19,6 +19,8 @@ public:
     static const char *file_o1;
     static const char *file_o2;
     static const char *belief;
+    static const char *bp_graphviz;
+    static const char *sprinkler_fg;
     static double J;
     static double th_min;
     static double th_max;

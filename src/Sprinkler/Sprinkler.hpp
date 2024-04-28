@@ -1,6 +1,7 @@
 #ifndef SPRINKLER_HPP
 #define SPRINKLER_HPP
 
+#include "Settings.hpp"
 #include <dai/factorgraph.h>
 #include <dai/var.h>
 #include <dai/factor.h>

@@ -5,3 +5,11 @@ libDAIApp
 # Ignore results contents except .gitkeep
 /results/ImageSegmentation/*
 !/results/ImageSegmentation/.gitkeep
+
+# Ignore results contents except .gitkeep
+/results/BipartiteGraph/*
+!/results/BipartiteGraph/.gitkeep
+
+# Ignore results contents except .gitkeep
+/results/Sprinkler/*
+!/results/Sprinkler/.gitkeep

@@ -48,8 +48,10 @@ void Sprinkler::runSprinkler()
     FactorGraph SprinklerNetwork(SprinklerFactors);
 
     // Write factorgraph to a file
-    SprinklerNetwork.WriteToFile("sprinkler.fg");
-    cout << "Sprinkler network written to sprinkler.fg" << endl;
+    std::string filename = std::string(Settings::sprinkler_fg) + ".fg";
+    const char *filename_c_str = filename.c_str();
+    SprinklerNetwork.WriteToFile(filename_c_str);
+    cout << "Sprinkler network written to: " << *filename_c_str << endl;
 
     // Output some information about the factorgraph
     cout << SprinklerNetwork.nrVars() << " variables" << endl;

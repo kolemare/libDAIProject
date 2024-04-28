@@ -6,6 +6,8 @@ const char *Settings::file_i2 = nullptr;
 const char *Settings::file_o1 = nullptr;
 const char *Settings::file_o2 = nullptr;
 const char *Settings::belief = nullptr;
+const char *Settings::bp_graphviz = nullptr;
+const char *Settings::sprinkler_fg = nullptr;
 double Settings::J = 0.0;
 double Settings::th_min = 0.0;
 double Settings::th_max = 0.0;
@@ -33,6 +35,8 @@ void Settings::initialize(int argc, char **argv)
     tol = cimg_option("-tol", 1e-9, "Tolerance level for inference method");
     file_fg = cimg_option("-fg", "", "Output factor graph file");
     belief = cimg_option("-blf", "", "Name of belief files");
+    bp_graphviz = cimg_option("-bpg", "", "Graphviz Bipartite graph output");
+    sprinkler_fg = cimg_option("-spfg", "", "Sprinkler factor graph output");
 
     // Parse operation
     const char *operation_str = cimg_option("-op", "ImageSegmentation", "Operation type");
